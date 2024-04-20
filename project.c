@@ -467,6 +467,8 @@ void gameplay()
 {
     srand(time(NULL));
 
+
+    printf(YELLOW);
     printf("******************************\n");
     printf("*                             *");
     printf("** WELCOME TO THE KBC GAME**\n*");
@@ -474,6 +476,10 @@ void gameplay()
     printf("*                           \n*");
     printf("*                           \n*");
     printf("*******************************");
+
+    printf(RESET);
+
+    printf(YELLOW);
 
     printf("\n\t\t************Before we Start The Game**************\n\n\t\t********* Read The Following Rules And Regulations-*********\n\n");
     printf("\n\n\t\t1. Game is divided into three levels:\n\t\t1.Easy\t\t\t2.Medium\t\t\t3.Hard  \n");
@@ -598,7 +604,12 @@ void gameplay()
     for (int i = 0; i < 5; i++)
     {
         Question current_question = ez[randomNumbers[i]];
+
+        printf(YELLOW);
+
         displayQuestion(current_question, i + 1, easy[i]);
+
+        printf(RESET);
 
         delay(1);
 
@@ -713,7 +724,12 @@ void gameplay()
         for (int i = 0; i < 5; i++)
         {
             int *randomNumbers = generateRandomNumbers();
+            printf(YELLOW);
+
             Question current_question = mid[randomNumbers[i]];
+
+            printf(RESET);
+
             displayQuestion(current_question, i + 6, med[i]);
 
             delay(1);
@@ -834,6 +850,7 @@ void gameplay()
             int hard[5] = {625000, 1250000, 2500000, 5000000, 10000000};
 
             Question herd[MAX_QUESTIONS];
+
             memcpy(herd, hard_question,
                    sizeof(hard_question));
 
@@ -842,10 +859,15 @@ void gameplay()
             for (int i = 0; i < 5; i++)
             {
                 int random_index = rand() % num_questions;
+
+                printf(YELLOW);
+
                 Question current_question = herd[randomNumbers[i]];
 
                 displayQuestion(current_question, i + 11, hard[i]);
 
+                printf(RESET);
+                
                 delay(1);
 
                 if ((fiffif == 1) & (exp == 1))
